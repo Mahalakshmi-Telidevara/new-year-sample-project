@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('G40H.gif'); /* Replace with your GIF URL */
+            background-size: cover; /* Make the background cover the entire viewport */
+            background-position: fixed; /* Center the GIF */
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        h1 {
+            font-size: 48px;
+            display: inline;
+            background: linear-gradient(45deg, #ff0080, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+        h2 {
+            font-size: 36px;
+            display: inline;
+            background: linear-gradient(45deg, #17b466, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+        h3 {
+            font-size: 36px;
+            display: inline;
+            background: linear-gradient(45deg, #d4b216, #9b21e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>HAPPY NEW YEAR</b></h1><br><br>
+    <h2>WELCOME TO</h2><br><br>
+    <h3>2</h3>
+    <h3>0</h3>
+    <h3>2</h3>
+    <h3 id="movingNumberContainer">
+        <span id="movingNumber">
+            4
+        </span>
+    </h3>
+    <h3 id="numberFive" style="display: none;"> 5 </h3> <!-- Initially hidden -->
+
+    <script>
+        const movingNumber = document.getElementById('movingNumber');
+        const numberFive = document.getElementById('numberFive');
+
+        // Function to replace the number
+        function replaceNumber() {
+            // Hide the current number
+            movingNumber.style.display = 'none';
+            // Show the number 5
+            numberFive.style.display = 'inline';
+        }
+
+        // Start the marquee effect of "4"
+        movingNumber.style.position = 'relative';
+        let position = 0;
+        
+        const interval = setInterval(() => {
+            // Move "4" to the right
+            position += 200; // Adjust how fast it moves
+            movingNumber.style.transform = `translateX(${position}px)`;
+
+            // Stop the interval when it goes beyond a certain limit (change limit as needed)
+            if (position > 200) { // You can adjust the value depending on layout
+                clearInterval(interval);
+                setTimeout(replaceNumber, 500); // Wait half a second then replace "4" with "5"
+            }
+        }, 20); // Adjust the speed of the movement by changing the interval time (20 ms)
+    </script>
+</body>
+</html>
